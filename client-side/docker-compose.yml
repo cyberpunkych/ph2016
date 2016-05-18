@@ -1,0 +1,15 @@
+python:
+  image: python:2-onbuild
+  ports:
+    - "8383:8081"
+  volumes:
+    - .:/tmp/
+  command: python /tmp/crlf.py
+
+nginx-php-fpm:
+  image: richarvey/nginx-php-fpm
+  volumes:
+    - .:/usr/share/nginx/html
+  ports:
+    - 8384:80
+  # command: /bin/bash
